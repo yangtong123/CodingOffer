@@ -9,7 +9,7 @@ public class N_15_NumberOf1InBinary {
 	
 	private static int NumberOf1_Solution1(int n) {
 		int count = 0;
-		int flag = 1 & 0xffff;
+		int flag = 1;
 		while (flag != 0) {
 			if ((n & flag) != 0) {
 				count++;
