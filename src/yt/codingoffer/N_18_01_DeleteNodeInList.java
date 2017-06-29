@@ -12,12 +12,10 @@ import yt.codingoffer.utils.ListNode;
 
 public class N_18_01_DeleteNodeInList {
 	
-	static ListNode Xnode = null; 
 
-	private static void deleteNode(ListNode head, ListNode pToBeDelete) {
-		Xnode = null;
+	private static ListNode deleteNode(ListNode head, ListNode pToBeDelete) {
 		if (head == null || pToBeDelete == null) {
-			return;
+			return null;
 		}
 
 		// 要删除的节点不是尾节点
@@ -25,9 +23,7 @@ public class N_18_01_DeleteNodeInList {
 			ListNode next = pToBeDelete.next;
 			pToBeDelete.value = next.value;
 			pToBeDelete.next = next.next;
-		} else if (head == pToBeDelete) { // 链表只有一个节点
-			// Java中所说的按引用传递实质上是传递该对象的地址，该地址其实是按值传递的，
-			// 通过这个地址可以修改其指向内存处对象的值。改变该地址的值毫无意义，只会失去对真实对象的掌控。
+		} else if (head == pToBeDelete) { 
 			head = head.next; 
 		} else { // 是尾节点
 			ListNode node = head;
@@ -36,7 +32,7 @@ public class N_18_01_DeleteNodeInList {
 			}
 			node.next = null;
 		}
-		Xnode = head;
+		return head;
 	}
 
 	// ====================测试代码====================
@@ -48,10 +44,10 @@ public class N_18_01_DeleteNodeInList {
 		System.out.printf("The node to be deleted is: \n");
 		printListNode(pNode);
 
-		deleteNode(pListHead, pNode);
+		ListNode head = deleteNode(pListHead, pNode);
 
 		System.out.printf("The result list is: \n");
-		printList(Xnode);
+		printList(head);
 		System.out.println();
 	}
 
