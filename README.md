@@ -18,3 +18,4 @@
 - [第十八题(1)：在O(1)时间内删除链表节点](./src/yt/codingoffer/N_18_01_DeleteNodeInList.java)
 - [第十八题(2)：删除链表中重复的节点](./src/yt/codingoffer/N_18_02_DeleteDuplicatedNode.java)
 - [第十九题：正则表达式匹配](./src/yt/codingoffer/N_19_RegularExpressionsMatching.java)
+- [第二十题：表示数值的字符串](./src/yt/codingoffer/N_20_NumericStrings.java)
