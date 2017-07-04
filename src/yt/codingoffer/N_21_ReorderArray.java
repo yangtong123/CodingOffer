@@ -1,7 +1,7 @@
 package yt.codingoffer;
 
 public class N_21_ReorderArray {
-	private static void reorder(int[] data) {
+	private static void reorderOddEven_1(int[] data) {
 		if (data == null || data.length <= 0) {
 			return;
 		}
@@ -21,6 +21,36 @@ public class N_21_ReorderArray {
 			}
 		}
 		
+	}
+	
+	private static void reorder(int[] data, CallBack callBack) {
+		if (data == null || data.length <= 0) {
+			return;
+		}
+		int begin = 0;
+		int end = data.length - 1;
+		while (begin < end) {
+			if (begin < end && !callBack.func((data[begin]))) {
+				begin++;
+			}
+			if (begin < end && callBack.func((data[end]))) {
+				end--;
+			}
+			if (begin < end) {
+				int temp = data[begin];
+				data[begin] = data[end];
+				data[end] = temp;
+			}
+		}
+		
+	}
+	
+	private static void reorderOddEven_2(int[] data, CallBack callBack) {
+		reorder(data, callBack);
+	}
+	
+	private static interface CallBack {
+		boolean func(int n);
 	}
 	
 	private static boolean isEven(int n) {
@@ -57,10 +87,19 @@ public class N_21_ReorderArray {
 
 	    System.out.printf("Test for solution 1:\n");
 	    PrintArray(numbers, length);
-	    reorder(numbers);
+	    reorderOddEven_1(numbers);
+	    PrintArray(numbers, length);
+	    
+	    System.out.printf("Test for solution 2:\n");
+	    PrintArray(numbers, length);
+	    reorderOddEven_2(numbers, new CallBack(){
+			@Override
+			public boolean func(int n) {
+				return isEven(n);
+			}	    	
+	    });
 	    PrintArray(numbers, length);
 
-	    
 	}
 
 	static void Test1()
