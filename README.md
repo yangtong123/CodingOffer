@@ -19,3 +19,8 @@
 - [第十八题(2)：删除链表中重复的节点](./src/yt/codingoffer/N_18_02_DeleteDuplicatedNode.java)
 - [第十九题：正则表达式匹配](./src/yt/codingoffer/N_19_RegularExpressionsMatching.java)
 - [第二十题：表示数值的字符串](./src/yt/codingoffer/N_20_NumericStrings.java)
+- [第二十一题：调整数组顺序使奇数位于偶数前面](./src/yt/codingoffer/N_21_ReorderArray.java)
+- [第二十二题：链表中倒数第k个节点](./src/yt/codingoffer/N_22_KthNodeFromEnd.java)
+- [第二十三题：链表中环的入口节点](./src/yt/codingoffer/N_23_EntryNodeInListLoop.java)
+- [第二十四题：反转链表](./src/yt/codingoffer/N_24_ReverseList.java)
+- [第二十五题：合并两个排序的链表](./src/yt/codingoffer/N_25_MergeSortedLists.java)
