@@ -16,48 +16,47 @@ public class N_38_StringPermutation {
 				temp = chs[i];
 				chs[i] = chs[j];
 				chs[j] = temp;
-				permutation(chs, i+1);
+				permutation(chs, i + 1);
 				temp = chs[j];
 				chs[j] = chs[i];
 				chs[i] = temp;
 			}
 		}
 	}
-	
+
 	// ====================测试代码====================
-	private static void Test(String pStr)
-	{
-	    if(pStr == null) {
-	        System.out.printf("Test for nullptr begins:\n");
-	        return;
-	    }
-	    else
-	        System.out.printf("Test for %s begins:\n", pStr);
+	private static void Test(String pStr) {
+		if (pStr == null) {
+			System.out.printf("Test for nullptr begins:\n");
+			return;
+		} else
+			System.out.printf("Test for %s begins:\n", pStr);
 
-	    
-	    permutation(pStr.toCharArray(), 0);
+		permutation(pStr.toCharArray(), 0);
 
-	    System.out.printf("\n");
+		System.out.printf("\n");
 	}
-	
+
 	public static void main(String[] args) {
-//		Test(null);
-//
-//	    String string1 = "";
-//	    Test(string1);
-//
-//	    String string2 = "a";
-//	    Test(string2);
-//
-//	    String string3 = "ab";
-//	    Test(string3);
-//
-//	    String string4 = "abc";
-//	    Test(string4);
-	    
-	    combination("abc".toCharArray());
+		// Test(null);
+		//
+		// String string1 = "";
+		// Test(string1);
+		//
+		// String string2 = "a";
+		// Test(string2);
+		//
+		// String string3 = "ab";
+		// Test(string3);
+		//
+		// String string4 = "abc";
+		// Test(string4);
+
+		// combination("abc".toCharArray());
+
+		NQueen(4);
 	}
-	
+
 	/**
 	 * 组合问题
 	 */
@@ -70,6 +69,7 @@ public class N_38_StringPermutation {
 			combine(chs, 0, i, list);
 		}
 	}
+
 	// 求n个字符的长度为m(1 <= m <= n)的组合的时候，把这n个字符分成两部分
 	// 第一个字符和其余字符。
 	// 如果组合里包含第一个字符，则下一步在剩余的n-1个字符里选取m-1个字符。
@@ -86,10 +86,52 @@ public class N_38_StringPermutation {
 			return;
 		}
 		list.add(chs[start]); // 相当于组合里有第一个字符
-		combine(chs, start+1, number-1, list); 
+		combine(chs, start + 1, number - 1, list);
 		list.remove((Character) chs[start]); // 相当于组合里没有第一个字符
-		combine(chs, start+1, number, list);
+		combine(chs, start + 1, number, list);
 	}
-	
-	
+
+	/*
+	 * N 皇后问题
+	 */
+	private static void NQueen(int n) {
+		if (n <= 0) {
+			return;
+		}
+
+		int[] a = new int[n];
+		for (int i = 0; i < n; i++) {
+			a[i] = i;
+		}
+
+		permutationForQueen(a, 0);
+	}
+
+	private static void permutationForQueen(int[] a, int i) {
+		if (i == a.length && isValid(a)) {
+			System.out.println(Arrays.toString(a));
+		} else {
+			for (int j = i; j < a.length; j++) {
+				int temp = a[i];
+				a[i] = a[j];
+				a[j] = temp;
+				permutationForQueen(a, i + 1);
+				temp = a[j];
+				a[j] = a[i];
+				a[i] = temp;
+			}
+		}
+	}
+
+	private static boolean isValid(int[] a) {
+		for (int i = 0; i < a.length; i++) {
+			for (int j = i + 1; j < a.length; j++) {
+				if (Math.abs(i - j) == Math.abs(a[i] - a[j])) {
+					return false;
+				}
+			}
+		}
+
+		return true;
+	}
 }
