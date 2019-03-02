@@ -8,7 +8,7 @@ public class N_03_02_DuplicationInArrayNoEdit {
 		int start = 1;
 		int end = length - 1;
 		while (start <= end) {
-			int middle = ((end - start) >>> 2) + start;
+			int middle = ((end - start) >> 1) + start;
 			int count = getCount(numbers, length, start, middle);
 			if (start == end) {
 				if (count > 1) {
