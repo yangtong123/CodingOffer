@@ -5,7 +5,7 @@
 /**
  * https://leetcode.cn/problems/ugly-number-iii/
  */
-class Solution {
+class NthUglyNumber {
 public:
     int nthUglyNumber(int n, int a, int b, int c) {
         int left = 0, right = (int) 2e9;
@@ -53,15 +53,4 @@ public:
         return gcd(b, a % b);
     }
 };
-
-int main() {
-    int n = 4;
-    int a = 2;
-    int b = 3;
-    int c = 4;
-
-    Solution solution;
-
-    solution.nthUglyNumber(n, a, b, c);
-}
 
