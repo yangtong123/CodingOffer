@@ -2,6 +2,9 @@
 // Created by yangtong on 2022/9/3.
 //
 
+/**
+ * https://leetcode.cn/problems/ugly-number-iii/
+ */
 class Solution {
 public:
     int nthUglyNumber(int n, int a, int b, int c) {
@@ -32,10 +35,12 @@ public:
         return setA + setB + setC - setAB - setAC - setBC + setABC;
     }
 
+    // 计算最小公倍数
     long lcm(long a, long b) {
         return a * b / gcd(a, b);
     }
 
+    // 计算最大公约数（辗转相除算法/欧几里得算法）
     long gcd(long a, long b) {
         if (a < b) {
             gcd(b, a);
