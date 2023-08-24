@@ -16,7 +16,7 @@ public class N141_HasCycle {
         ListNode second = head;
 
         while (first != second) {
-            if (first.next == null || second == null) {
+            if (first == null || first.next == null) {
                 return false;
             }
 
