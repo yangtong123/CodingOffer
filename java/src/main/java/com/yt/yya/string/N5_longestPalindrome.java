@@ -1,4 +1,4 @@
-package com.yt.yya.array;
+package com.yt.yya.string;
 
 public class N5_longestPalindrome {
     public String longestPalindrome(String s) {
