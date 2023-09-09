@@ -8,9 +8,9 @@ public class N104_MaxDepth {
             return 0;
         }
 
-        int maxLeft = maxDepth(root.left) + 1;
-        int maxRight = maxDepth(root.right) + 1;
+        int maxLeft = maxDepth(root.left);
+        int maxRight = maxDepth(root.right);
 
-        return Math.max(maxLeft, maxRight);
+        return Math.max(maxLeft, maxRight) + 1;
     }
 }
