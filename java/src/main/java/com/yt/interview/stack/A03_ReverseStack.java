@@ -11,14 +11,14 @@ public class A03_ReverseStack {
     }
 
     public int getAndRemoveLastElement(Stack<Integer> stack) {
-        Integer result = stack.pop();
+        int element = stack.pop();
         if (stack.isEmpty()) {
-            return result;
+            return element;
         }
 
-        int val = getAndRemoveLastElement(stack);
-        stack.push(result);
-        return val;
+        int last = getAndRemoveLastElement(stack);
+        stack.push(element);
+        return last;
     }
 
     public void reverse(Stack<Integer> stack) {
@@ -30,4 +30,6 @@ public class A03_ReverseStack {
         reverse(stack);
         stack.push(val);
     }
+
+
 }

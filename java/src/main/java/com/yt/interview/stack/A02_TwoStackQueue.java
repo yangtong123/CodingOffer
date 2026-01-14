@@ -16,24 +16,24 @@ public class A02_TwoStackQueue {
     }
 
     public int poll() {
-        if (!stackPop.isEmpty()) {
-            return stackPop.pop();
-        }
-
-        if (!stackPush.isEmpty()) {
-            stackPop.push(stackPush.pop());
+        if (stackPop.isEmpty() && stackPush.isEmpty()) {
+            throw new RuntimeException("Queue is empty");
+        } else if (stackPop.isEmpty()) {
+            while (!stackPush.isEmpty()) {
+                stackPop.push(stackPush.pop());
+            }
         }
 
         return stackPop.pop();
     }
 
     public int peek() {
-        if (!stackPop.isEmpty()) {
-            return stackPop.peek();
-        }
-
-        if (!stackPush.isEmpty()) {
-            stackPop.push(stackPush.pop());
+        if (stackPop.isEmpty() && stackPush.isEmpty()) {
+            throw new RuntimeException("Queue is empty");
+        } else if (stackPop.isEmpty()) {
+            while (!stackPush.isEmpty()) {
+                stackPop.push(stackPush.pop());
+            }
         }
 
         return stackPop.peek();
